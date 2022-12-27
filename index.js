@@ -1,22 +1,42 @@
-//실행 단축키 ctrl + alt(option) + n
-
-const { count } = require('console');
-const { get } = require('http');
-
-// const { func, element } = require('prop-types');
-
-// 한 줄에 공백으로 값이 들어올 때 -> 공백으로 split한 문자들이 array 형태로 들어온다. parseInt로 하나하나 분리한다.
-// var input = require('fs').readFileSync('/dev/stdin').toString().split(' ');
-
-// 한 줄에 하나씩 값이 들어올 때 -> 개행문자'\n'로 split한다.
-// var input = require('fs').readFileSync('/dev/stdin').toString().split('\n');
-
-// ⭐️ vscode에서 문제 풀어보고 테스트 할 때는 readFileSync('example.txt'), 
-// ⭐️ 백준에 제출할 때에는 readFileSync('/dev/stdin')으로 쓴다!
 
 
-let input = Number(require('fs').readFileSync('example.txt'));
+// CommonJS Modules FS
+// 제출할 때는 example.txt -> /dev/stdin 로 변경할 것!
+// 1. 하나의 값을 입력받을 때
+// const input = require("fs").readFileSync("example.txt").toString().trim();
 
-for (let i = input; i>0; i--){
-  console.log(" ".repeat(input-i)+"*".repeat(i));
-}
+// 2. 공백으로 구분된 한 줄의 값들을 입력받을 때
+// const input = require("fs").readFileSync("example.txt").toString().trim().split(" ");
+
+// 3. 여러 줄의 값들을 입력받을 때
+// const input = require("fs").readFileSync("example.txt").toString().trim().split("\n");
+
+// 4. 첫 번째 줄에 자연수 n을 입력받고그 다음줄에 공백으로 구분된 n개의 값들을 입력받을 때
+// const [n, ...arr] = require('fs').readFileSync('example.txt').toString().trim().split(/\s/);
+
+// 5. 첫 번째 줄에 자연수 n을 입력받고, 그 다음줄부터 n개의 줄에 걸쳐 한 줄에 하나의 값을 입력받을 때
+// const [n, ...arr] = require("fs").readFileSync("example.txt").toString().trim().split("\n");
+
+// 6. 하나의 값 또는 공백으로 구분된 여러 값들을 여러 줄에 걸쳐 뒤죽박죽 섞여서 입력받을 때
+// ex) n 입력 - 공백으로 구분된 n개의 값 입력 - m 입력 - 여러 줄에 걸쳐 m개의 값 입력
+// const input = require('fs').readFileSync('example.txt').toString().trim().split(/\s/);
+// const n = input[0];
+// const n_arr = input.slice(1, n+1);
+// const [m, ...m_arr] = input.slice(n+1);
+
+// 2~6에서 입력받는 값들을 모두 String에서 Number로 바꾸려면 split()뒤에 .map(Number)를 추가
+
+// 코딩 스타트 ! ---------------------------------------------------------- 
+
+const [a,b] = require('fs').readFileSync('example.txt').toString().split(' ').map(Number);
+
+const sum = a+b;
+const dis = a-b;
+const mul = a*b;
+// 자스에서는 값을 나눈 후에 소수점이 나오기 떄문에 몫을 구하기 위해서는 정수형으로 바꿔주어야 함! 
+const div = parseInt(a/b);
+const ex = a%b;
+
+let answer = [sum,dis,mul,div,ex];
+
+console.log(answer.join('\n'));
