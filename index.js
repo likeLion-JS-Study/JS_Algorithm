@@ -1,4 +1,6 @@
 
+const { count } = require('console');
+const { get } = require('http');
 
 // CommonJS Modules FS
 // 제출할 때는 example.txt -> /dev/stdin 로 변경할 것!
