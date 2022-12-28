@@ -6,8 +6,6 @@
 ## Solution
 
 [문제 풀이 작성]
-"Hello World!" 콘솔 출력해보는 문제
 
 ```javascript
-console.log('Hello World!');
 ```
