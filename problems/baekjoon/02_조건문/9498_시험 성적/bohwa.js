@@ -15,6 +15,6 @@ if(score>=90){
 } else {console.log('F');}
 
 /**시험점수를 정수로 만들기 위해 parseInt를 썼다.
- * 조건이 여러개니깐 else if를 사용함.
+ * 조건이 여러개니깐 else if를 사용함
  * 
  */
