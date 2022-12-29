@@ -9,7 +9,6 @@
 [문제 풀이 작성]
 
 ```javascript
-// [아래에 코드 작성]
 const fs = require("fs");
 
 let input = fs.readFileSync("example.txt").toString().trim().split(" ");
