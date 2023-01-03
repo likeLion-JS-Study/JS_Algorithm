@@ -29,12 +29,33 @@
 <p>첫째 줄에 상근이가 창영이의 방법을 사용할 때, 설정해야 하는 알람 시간을 출력한다. (입력과 같은 형태로 출력하면 된다.)
 </p>
 
-
 ### Solution
 
 [문제 풀이 작성]
 
 ```javascript
-// [아래에 코드 작성]
+let input = require("fs").readFileSync("/dev/stdin").toString().split(" ");
+//한줄 작성
 
+let hour = parseInt(input[0]);
+let min = parseInt(input[1]);
+//받은 입력값을 각각의 변수에 넣어준다. 숫자만 가져오기 위해서 parseInt를 써주었다.
+
+//45분 일찍 알람 설정하기
+//우선, 분(min)이 45보다 작을경우에는 min에 60을 더해준뒤 45를 빼주어야 분이 항상 자연수가 될 수 있다.
+//그외의 경우에는 바로 45분을 빼주면 된다.
+//그리고 전자의 경우, 분(min)에 60분을 더해주었기 때문에 시(hour)에서 1을 빼주어야 한다.
+//이때, 시(hour)가 0시 일 경우, 0:00~23:59를 맞춰주기 위해서
+//0시=24시로 바꿔주고 난 뒤 시(hour)에서 1을 빼야하고, 그 외의 경우에는 바로 1을 빼주면 된다.
+if (min - 45 < 0) {
+  min = min + 60 - 45;
+  if (hour == 0) {
+    hour = 24;
+  }
+  hour = hour - 1;
+} else {
+  min = min - 45;
+}
+
+console.log(hour, min);
 ```
