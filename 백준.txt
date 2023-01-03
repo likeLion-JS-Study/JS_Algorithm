@@ -1,4 +1,0 @@
-let input = require('fs').readFileSync('dev/stdin').toString().split(' ');
-
-
-이걸 입력하고 해야함
