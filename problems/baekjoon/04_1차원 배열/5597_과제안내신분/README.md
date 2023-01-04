@@ -22,7 +22,19 @@
 
 [문제 풀이 작성]
 
-```javascript
-// [아래에 코드 작성]
+있다/없다 toggle로 생각한 자료형에 넣어둔뒤 완전탐색으로 없는 것을 출력해주면 된다.  
+여기서 어떤 자료형을 쓰면 효율적일까 생각이 들었는데 고정적으로 30명이 주어졌기 때문에 30짜리 정적배열을 선언하여 사용하기로 했다.
+더 적은 메모리 사용으로 비트마스크 방법도 있겠지만 굳이 안써도 통과될 것 같다.
 
+```javascript
+function solution() {
+  // 3 풀이
+  const arr = Array.from({length: 30}, _ => false );
+  input.forEach(item => {
+    arr[item - 1] = true;
+  });
+  arr.forEach((item, idx) => {
+    if (!item) console.log(idx + 1);
+  })
+}
 ```
