@@ -24,5 +24,21 @@
 ```javascript
 
 // [아래에 코드 작성]
+const fs = require('fs');
+const filePath = process.platform === 'linux' ? '/dev/stdin' : 'example.txt';
+let input = fs.readFileSync(filePath).toString().split('\n');
+
+solution(input[0], input[1]);
+
+function solution(N, numbers){
+  let sum = 0;
+
+  for(let i = 0; i < N; ++i){
+    sum += +numbers[i];
+    // numbers에서 받아온 문자열을 하나씩 숫자로 바꿔준다. -> 단항 연산자 +을 사용함.
+    // sum 누적시켜준다.
+  }
+  console.log(sum);
+}
 
 ```
