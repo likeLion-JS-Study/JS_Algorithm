@@ -33,7 +33,40 @@
 [문제 풀이 작성]
 
 ```javascript
-
 // [아래에 코드 작성]
+let newArray = [];
+// 입력값이 주어지지 않으므로 새로운 배열을 생성한다.
+let result = [];
+// 결과값의 형태를 배열로 나타나게끔 만들어준다.
 
+for (let i = 1; i <= 10000; i++) {
+  // 문제에서 처럼 d(N)의 값이 10000 되지 않도록 설정해준다.
+  // 처음에 들어올 값은 1이므로 let i = 1이라고 초기값을 지정해준다.
+  // 값이 만족한다면 아래의 코드 블록을 반복한다.
+  let dN = 0;
+  // dN의 값을 선언하여 할당한다.
+  let stringNumber = String(i);
+  // index 번호를 문자열로 정의한다.
+  for (let j = 0; j < stringNumber.length; j++) {
+    // dN의 초기값을 0이라고 정해주고 문자열의 숫자의 길이가 j보다 크거나 같도록 명시해주고 후증가시킨다.
+    dN += Number(stringNumber[j]);
+    // 복합 할당 연산자를 이용하여 자연수 j의 값을 dN에 할당해준다.
+    // 값이 만족하는 한 반복되어 나타난다.
+  }
+  let nNum = i + dN;
+  // dN의 숫자를 i값과 dN의 값을 더한 것으로 할당한다.
+  newArray.push(nNum);
+  // nNum로 나온 수들을 newArray 배열로 푸시한다.
+}
+
+for (let i = 1; i <= 10000; i++) {
+  if (newArray.indexOf(i) === -1) {
+    //  newArray 배열에서 특정 지정된 요소 i를 찾아 첫 번째 인덱스를 반환하고, 그 것이 존재하지 않으면 -1을 반환한다.
+    result += i + "\n";
+    // 복합 할당 연산자를 이용하여 i의 값을 줄바꿈하여 나타나게끔 result 값을 설정한다.
+    // 해당 반복문은 조건이 만족하는 한 지속된다.1
+  }
+}
+
+console.log(result);
 ```
