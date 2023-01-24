@@ -46,16 +46,16 @@ const result = (input) => {
     if (i < 100) {
       // 100보다 작은 값은 전부 등차수열을 만족한다.
       cnt++;
-    } else if (i === 100 && i < 1000) {
+    } else if (100 <= i && i < 1000) {
       let iNum = String(i);
       //입력값을 문자열로 받아서 공차를 받아낸다
       let diff1 = parseInt(iNum[1]) - parseInt(iNum[0]);
-      // 1의 자리와 10의 자링의 공차
+      // 1의 자리와 10의 자리의 공차
       let diff2 = parseInt(iNum[2]) - parseInt(iNum[1]);
       // 10의 자리와 100의 자리의 공차
       if (diff1 === diff2) {
         cnt++;
-        // else if에서 각 자리의 공차가 같다면 count의 수가 올라가도록 설정한다.`
+        // else if에서 각 자리의 공차가 같다면 count의 수가 올라가도록 설정한다.
       }
     }
   }
