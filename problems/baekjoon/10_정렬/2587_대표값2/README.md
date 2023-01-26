@@ -30,5 +30,26 @@
 
 ```javascript
 // [아래에 코드 작성]
+const input = require("fs")
+  .readFileSync("example.txt")
+  .toString()
+  .trim()
+  .split("\n")
+  .map((x) => +x);
+// 입력값을 받아 정수형으로 바로 받아내었다
 
+const result = input.reduce((sum, cur) => {
+  return sum + cur;
+}, 0);
+// reduce를 이용하여 초기값에 0을 넣어 숫자형으로 갑을 받아낼 것으로 설정하고 누적값이 초기값 0부터 시작해서 return 하는대로 누적된다.
+
+let newArray = input.sort((a, b) => a - b);
+// 오름차순으로 된 새로운 배열로 정리해준다. 이유 : 그냥 뒤죽박죽된 거 중에서 중앙값 뽑아내기 쉽게하려고
+let median = Math.floor(newArray.length / 2);
+// 배열의 길이에서 2나누면 딱 중앙값의 순서가 나오니 그걸 소수점 때버린다.
+
+console.log(result / input.length);
+// 첫째줄에는 평균값을 출력
+console.log(newArray[median]);
+// 둘째줄에는 중앙값을 출력
 ```
