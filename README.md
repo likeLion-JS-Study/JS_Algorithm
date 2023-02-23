@@ -52,4 +52,7 @@
   <a href="https://github.com/jaesukpark77">
     <img src="https://github.com/jaesukpark77.png" width="100">
   </a>
+  <a href="https://github.com/5wintaek">
+    <img src="https://github.com/5wintaek.png" width="100">
+  </a>
 </p>
